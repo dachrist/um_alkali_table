@@ -1,0 +1,49 @@
+! Namelist file for the tutorial pt_eq: 1D radiative-convective equilibrium profile (with equilibrium chemistry)
+! This example sets the parameters for WASP-96b
+
+&UNITS
+/
+
+&PARAM 
+debug  = 1
+fin = './pt.nc'
+/
+
+&EOS gamma = 0./
+
+&GRID 
+ndepth = 4799
+/
+
+&CHEMISTRY 
+chem  = 'eq' 
+fAin = './chem_venot_plus_alkali.ncdf'
+fAeqout = 'chem_grid_mdh3.ncdf'
+MdH = 3
+print_chem = f
+calc_cp_chem = f
+fcoeff = '/home/dc605/my_ctldata/chem/venot2019/coeff_NASA_sc.dat'
+fcoeffnine = '/home/dc605/my_ctldata/chem/venot2019/coeff9_NASA_sc.dat'
+/
+
+&CHEM_NEQ
+/
+
+&RADTRANS 
+/
+
+&CHEM_RELAX
+/
+
+&OPACITY 
+nkap =0
+/
+
+&SOLVER 
+solve_hydro  = f
+solve_energy = f
+nitmax       = 10000
+/
+ 
+&CONVECTION alpha = 1.5/
+
